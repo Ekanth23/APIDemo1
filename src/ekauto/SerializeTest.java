@@ -47,7 +47,7 @@ public class SerializeTest {
 		.when().post("/maps/api/place/add/json")
 		.then().assertThat().statusCode(200).extract().response(); 
 		
-		String response = res.asPrettyString();
+		String response = res.asString();
 		System.out.println(response);
 	}
 
