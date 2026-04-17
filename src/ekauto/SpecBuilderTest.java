@@ -23,15 +23,17 @@ public class SpecBuilderTest {
 	public static void main (String[] args)
 	{
 		
+		RestAssured.baseURI="https://rahulshettyacademy.com";
+		
 		AddPlace p = new AddPlace(); 
 		p.setAccuracy(50); 
 		p.setAddress("29, side layout, cohen 09");
 		p.setLanguage("French-IN");
 		p.setName("Frontline house");
 		p.setPhoneno("(+91) 983 893 3937");
-		p.setWebsite("http://google.com");
+		p.setWebsite("https://rahulshettyacademy.com");
 		
-		List<String> myList=new ArrayList<>(); 
+		List<String> myList=new ArrayList<String>(); 
 		myList.add("shoe park"); 
 		myList.add("shop"); 
 		p.setTypes(myList); 
@@ -50,7 +52,6 @@ public class SpecBuilderTest {
 		ResponseSpecification resspec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 		
 		
-		RestAssured.baseURI = "https://rahulshettyacademy.com"; 
 		
 		RequestSpecification res = given()
 									.spec(req)
